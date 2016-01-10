@@ -1,5 +1,5 @@
 Nelmio\Entity\Exercise:
-    user{1..500}:
+    exercise{1..500}:
         exercise: ['exercise A', 'exercise B', 'exercise C']
         weight: <numberBetween(20, 200)>
         count: <numberBetween(5, 15)>

@@ -1,5 +1,5 @@
-welcome: Hello
-heading: Check what you did in last 3 trainings
-today: today
-week_ago: week ago
-two_weeks_ago: two weeks ago
+welcome: "Hello"
+heading: "Check what you did in last 3 trainings"
+today: "today"
+week_ago: "week ago"
+two_weeks_ago: "two weeks ago"

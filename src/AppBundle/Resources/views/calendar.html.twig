@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div>
+        <h1>Hi men</h1>
+        <h3>Check what you did in last 3 trainings</h3>
+        <table border="1">
+            <tr>
+                <td>{{ 'today'|trans }}</td>
+                <td>week ago</td>
+                <td>today</td>
+            </tr>
+            {% for item in data %}
+                <tr>
+                    {% if (item['-2 week'|date('Y-m-d')] is defined )%}
+                        <td>{{item['-2 week'|date('Y-m-d')].exercise}} {{ item['-2 week'|date('Y-m-d')].weight }}kg X {{ item['-2 week'|date('Y-m-d')].count }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                    {% if (item['-1 week'|date('Y-m-d')] is defined) %}
+                        <td>{{item['-1 week'|date('Y-m-d')].exercise}} {{ item['-1 week'|date('Y-m-d')].weight }}kg X {{ item['-1 week'|date('Y-m-d')].count }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                    {% if (item['now'|date('Y-m-d')] is defined) %}
+                        <td>{{item['now'|date('Y-m-d')].exercise}} {{ item['now'|date('Y-m-d')].weight }}kg X {{ item['now'|date('Y-m-d')].count }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

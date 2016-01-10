@@ -5,13 +5,17 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Exercise;
 
-class LoadData implements FixtureInterface
+class LoadExerciseData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $exercise = new Exercise();
+        $objects = \Nelmio\Alice\Fixtures::load(__DIR__.'/fixtures.yml', $manager, ['providers' => [$this]]);
+    }
 
-        $manager->persist($exercise);
-        $manager->flush();
+    public function randomExercise()
+    {
+        $exercise = ['exercise A', 'exercise B', 'exercise C'];
+
+        return $exercise[array_rand($exercise)];
     }
 }

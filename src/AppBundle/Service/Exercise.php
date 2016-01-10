@@ -26,7 +26,7 @@ class Exercise
 
         foreach($data as $key=>$value)
         {
-            $result[$value->getDate()->format('Y-m-d')][] = $value;
+            $result[][$value->getDate()->format('Y-m-d')] = $value;
         }
 
         return $result;

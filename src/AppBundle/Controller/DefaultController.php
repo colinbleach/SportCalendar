@@ -21,8 +21,6 @@ class DefaultController extends Controller
         $exercisedata = $this->get('app.exercise');
         $data = $exercisedata->getExerciseData();
 
-        var_dump($data);
-
         return $this->render('AppBundle::calendar.html.twig',
             array('data' => $data)
         );

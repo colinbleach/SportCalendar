@@ -1,0 +1,7 @@
+AppBundle\Entity\Exercise:
+    exercise{1..500}:
+        exercise: <randomExercise()>
+        weight: <numberBetween(20, 200)>
+        count: <numberBetween(5, 15)>
+        date: <dateTimeBetween('-30 days', 'now')>
+        time: <dateTimeBetween('-30 days', 'now')>

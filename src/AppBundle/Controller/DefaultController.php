@@ -15,8 +15,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $a = $this->get('translator')->trans('two_weeks_ago');
-        var_dump($a); die;
         $exercisedata = $this->get('app.exercise');
         $data = $exercisedata->getExerciseData();
 

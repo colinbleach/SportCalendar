@@ -13,11 +13,19 @@ class Exercise
         $this->em = $em;
     }
 
-    public function getExerciseData()
+    public function getExerciseData($date = null)
     {
-        $today = date("Y-m-d");
-        $lastweek = date("Y-m-d", strtotime("-1 week"));
-        $twoweek = date("Y-m-d", strtotime("-2 week"));
+        if ($date === null) {
+            $today = date("Y-m-d");
+            $lastweek = date("Y-m-d", strtotime("-1 week"));
+            $twoweek = date("Y-m-d", strtotime("-2 week"));
+        }
+        else
+        {
+            $today = $date->format('Y-m-d');
+            $lastweek = $date->modify('-1 week')->format('Y-m-d');
+            $twoweek = $date->modify('-1 week')->format('Y-m-d');
+        }
 
         $data = $this->em->getRepository('AppBundle:Exercise')
             ->findBy(array('date'=>[$today,$lastweek,$twoweek]));

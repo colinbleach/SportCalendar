@@ -62,11 +62,8 @@ class DefaultServiceTest extends \PHPUnit_Framework_TestCase
 
         $service = new Exercise($emMock);
 
-        $actualData = $service->getExerciseData();
+        $actualData = $service->getExerciseData(new \DateTime('2016-01-11'));
 
-        //$this->assertArrayHasKey('today', $actualData);
-        //$this->assertArrayHasKey('week ago', $actualData);
-var_dump($actualData); die;
         $this->assertCount(1, $actualData[date('Y-m-d')]);
         $this->assertCount(3, $actualData[date('Y-m-d', strtotime("-1 week"))]);
         $this->assertCount(2, $actualData[date('Y-m-d', strtotime("-2 week"))]);
